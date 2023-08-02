@@ -9,6 +9,12 @@ import UIKit
 
 class ToDoDetailsViewController: UIViewController {
 
+    @IBOutlet weak var taskTitleLabel: UILabel!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

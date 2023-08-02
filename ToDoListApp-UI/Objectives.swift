@@ -10,6 +10,9 @@ import Foundation
 
 
 /**
+ 
+ Objectives
+ 
  1. Passing Data - NSNotification, Segue, Delegation
  2. TableView editing Mode
  3. Data Validation

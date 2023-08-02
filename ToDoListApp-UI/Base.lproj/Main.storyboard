@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BaQ-IV-9nJ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-Co-JaS">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hXx-AK-kEX" detailTextLabel="Q6m-7T-5C7" rowHeight="119" style="IBUITableViewCellStyleSubtitle" id="ghy-Vi-FrY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ToDoItem" textLabel="hXx-AK-kEX" detailTextLabel="Q6m-7T-5C7" rowHeight="119" style="IBUITableViewCellStyleSubtitle" id="ghy-Vi-FrY">
                                         <rect key="frame" x="0.0" y="50" width="393" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ghy-Vi-FrY" id="w4G-4n-teS">
@@ -56,10 +56,15 @@
                             <constraint firstAttribute="bottom" secondItem="aG4-Co-JaS" secondAttribute="bottom" id="tfH-zx-M3Y"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fog-Sv-35E"/>
+                    <connections>
+                        <outlet property="tableView" destination="aG4-Co-JaS" id="71c-Zp-P1v"/>
+                        <segue destination="ziK-Rn-VTw" kind="show" identifier="TaskDetailsSegue" id="O0w-5S-LMG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="-54"/>
+            <point key="canvasLocation" x="445" y="-61"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wXA-jF-1YQ">
@@ -113,9 +118,12 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Add Task">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addTaskDidTouch:" destination="iE8-Uu-s5B" eventType="touchUpInside" id="Fdg-yX-Nfd"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpf-rh-YuN">
                                 <rect key="frame" x="44" y="155" width="117" height="21"/>
@@ -124,12 +132,12 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Add details" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-Md-68t">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-Md-68t">
                                 <rect key="frame" x="29" y="267" width="329" height="234"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task Completion Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIm-So-0ub">
@@ -148,6 +156,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qvB-Ud-MHf"/>
+                    <connections>
+                        <outlet property="taskCompletionDatePicker" destination="h7l-40-NZX" id="bGI-0E-h5E"/>
+                        <outlet property="taskDetailsTextView" destination="PlG-Md-68t" id="Scd-q7-IJY"/>
+                        <outlet property="taskNameTextField" destination="Nkp-mE-qe4" id="Am4-Lp-a3f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZA-l9-QCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,12 +201,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Details" translatesAutoresizingMaskIntoConstraints="NO" id="zhd-QI-uzL">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Details" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zhd-QI-uzL">
                                 <rect key="frame" x="24" y="234" width="338" height="419"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -204,10 +217,32 @@
                             <constraint firstItem="ois-Y4-OmB" firstAttribute="bottom" secondItem="OcG-W5-Ymn" secondAttribute="bottom" constant="60" id="bQp-Mh-jbY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="reD-u2-AC3"/>
+                    <connections>
+                        <outlet property="taskTitleLabel" destination="Mkz-2s-Lby" id="w0Q-jd-rKF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXl-EH-GqN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="568.70229007633588" y="-54.225352112676056"/>
+            <point key="canvasLocation" x="1321" y="-67"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4c6-vO-ORo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BaQ-IV-9nJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m8s-UR-WiJ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZEf-4m-4uW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTb-yW-mPd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-286.25954198473283" y="-61.267605633802823"/>
         </scene>
     </scenes>
     <resources>
