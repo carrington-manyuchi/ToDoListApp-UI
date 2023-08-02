@@ -10,26 +10,37 @@ import UIKit
 class ToDoDetailsViewController: UIViewController {
 
     @IBOutlet weak var taskTitleLabel: UILabel!
-    
-    
-    
-    
+    @IBOutlet weak var taskDetailsTextView: UITextView!
+    @IBOutlet weak var taskCompletionButton: UIButton!
+    @IBOutlet weak var taskCompletionDate: UILabel!
+
+    var toDoItem: ToDoItemModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        taskTitleLabel.text = toDoItem.name
+        taskDetailsTextView.text = toDoItem.details
+        
+        if toDoItem.isComplete {
+            disableButton()
+        }
+        
+        // formattingDate to String
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy hh:mm "
+        
+        let taskDate = dateFormatter.string(from: toDoItem.completionDate)
+        
+        taskCompletionDate.text = taskDate
+    }
 
-        // Do any additional setup after loading the view.
+    
+    func disableButton() {
+        taskCompletionButton.backgroundColor = .gray
+        taskCompletionButton.isEnabled = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func taskDidComplete(_ sender: UIButton) {
     }
-    */
-
 }

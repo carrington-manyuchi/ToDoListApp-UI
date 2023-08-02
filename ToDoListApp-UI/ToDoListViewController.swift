@@ -19,8 +19,10 @@ class ToDoListViewController: UIViewController {
         let testItem = ToDoItemModel(name: "Test Item", details: "Test Details", completionDate: Date(), startDate: Date(), isComplete: true)
         let testItem2 = ToDoItemModel(name: "Test Item 2", details: "Test Detailssecond", completionDate: Date(), startDate: Date(), isComplete: false)
         
+        let testItem3 = ToDoItemModel(name: "Test 3", details: "Test Details 3", completionDate: Date(), startDate: Date(), isComplete: false)
         self.toDoItems.append(testItem2)
         self.toDoItems.append(testItem)
+        self.toDoItems.append(testItem3)
     }
 }
 
@@ -35,14 +37,26 @@ extension ToDoListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let toDoItem = toDoItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItem", for: indexPath)
-        
         cell.textLabel?.text = toDoItem.name
         cell.detailTextLabel?.text = toDoItem.isComplete ? "Complete" : "InComplete"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "TaskDetailsSegue", sender: nil)
         
+        let selectedItem = toDoItems[indexPath.row]
+        
+        // Navigating from one VC to the other
+        performSegue(withIdentifier: "TaskDetailsSegue", sender: selectedItem)
+    }
+    
+    
+     ///  Passing data with Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TaskDetailsSegue" {
+            guard let destinationVC = segue.destination as? ToDoDetailsViewController else { return }
+            guard let toDoItem = sender as? ToDoItemModel else { return }
+            destinationVC.toDoItem = toDoItem
+        }
     }
 }
