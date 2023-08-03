@@ -34,6 +34,11 @@ class ToDoListViewController: UIViewController {
         self.toDoItems.append(testItem3)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tableView.setEditing(false, animated: true)
+    }
+    
     @objc func addTapped() {
         performSegue(withIdentifier: "AddTaskSegue", sender: nil)
         modalPresentationStyle = .fullScreen
@@ -68,8 +73,10 @@ extension ToDoListViewController: UITableViewDataSource, UITableViewDelegate, To
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
             toDoItems.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.right)
             tableView.reloadData()
         }
     }
