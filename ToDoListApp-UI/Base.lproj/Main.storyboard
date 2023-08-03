@@ -60,29 +60,14 @@
                     <connections>
                         <outlet property="tableView" destination="aG4-Co-JaS" id="71c-Zp-P1v"/>
                         <segue destination="ziK-Rn-VTw" kind="show" identifier="TaskDetailsSegue" id="O0w-5S-LMG"/>
+                        <segue destination="iE8-Uu-s5B" kind="show" identifier="AddTaskSegue" id="Aoz-G9-WwJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="445" y="-61"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wXA-jF-1YQ">
-            <objects>
-                <navigationController id="Kf6-1e-eto" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YJy-Jw-fcv">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="iE8-Uu-s5B" kind="relationship" relationship="rootViewController" id="bUW-oE-gtU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tNc-C5-V5Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-361" y="642"/>
-        </scene>
-        <!--Add Task View Controller-->
+        <!--Add Task-->
         <scene sceneID="N0V-OL-Qoe">
             <objects>
                 <viewController id="iE8-Uu-s5B" customClass="AddTaskViewController" customModule="ToDoListApp_UI" customModuleProvider="target" sceneMemberID="viewController">
@@ -155,7 +140,7 @@
                             <constraint firstItem="SR5-qe-8Z1" firstAttribute="bottom" secondItem="39l-Ok-XbN" secondAttribute="bottom" constant="60" id="kOJ-Hk-8hc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qvB-Ud-MHf"/>
+                    <navigationItem key="navigationItem" title="Add Task" id="qvB-Ud-MHf"/>
                     <connections>
                         <outlet property="taskCompletionDatePicker" destination="h7l-40-NZX" id="bGI-0E-h5E"/>
                         <outlet property="taskDetailsTextView" destination="PlG-Md-68t" id="Scd-q7-IJY"/>
@@ -164,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZA-l9-QCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="580.91603053435108" y="648.59154929577471"/>
+            <point key="canvasLocation" x="444" y="706"/>
         </scene>
         <!--To Do Details View Controller-->
         <scene sceneID="a6J-Ue-NW3">
